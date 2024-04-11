@@ -56,10 +56,10 @@ jobs:
           issue_title: OWAP Baseline
       - name: ZAP Full Scan
         if: ${{ inputs.ZAP_SCAN_TYPE == 'full' }}
-        uses: zaproxy/action-full-scan@v0.3.0
+        uses: zaproxy/action-full-scan@v0.10.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          docker_name: 'owasp/zap2docker-stable:2.0.0'
+          docker_name: 'softwaresecurityproject/zap-stable'
           target: ${{ inputs.ZAP_TARGET_URL }}
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a -d -T ${{ inputs.ZAP_MAX_DURATION }} -m ${{ inputs.ZAP_DURATION }}'
